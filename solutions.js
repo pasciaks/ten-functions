@@ -46,12 +46,19 @@ function addOne(num) {
 }
 
 function isEven(num) {
+    console.log("==========");
+    console.log(num);
+    console.log(typeof num);
+    console.log("==========")
+
+    if (num === false) { return false;}
+
+    if (num === true) { return false;}
+
     if (num == 0) {
         return true;
     }
-    if (typeof num === 'boolean'){
-        return false;
-    }
+
     return ((Number(num) % 2) == 0);
 
 }
