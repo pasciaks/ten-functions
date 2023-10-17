@@ -20,3 +20,59 @@
  * and
  * concat
  */
+
+function isTrue(value) {
+    let result = (value === true)
+    console.log(`isTrue on (${value}) is ${result}`);
+    return result;
+}
+
+function isFalse(value) {
+    return value == false;
+
+}
+
+function not(value) {
+    return !value;
+}
+
+function addOne(num) {
+    if (isNaN(num)) {
+        return num;
+    } else {
+        return Number(num) + 1;
+    }
+}
+
+function isEven(num) {
+    if ((num % 2) === 0) {
+        // is even
+        return true;
+    }
+    return false;
+}
+
+function isIdentical(i1,i2){
+    return i1===i2;
+}
+
+function isEqual(i1,i2) {
+    return ((i1==i2) && (i1!==i2));
+}
+
+function or(i1,i2) {
+    return (i1 || i2);
+}
+
+function and(i1,i2) {
+    return (i1 && i2);
+}
+
+function concat(i1,i2) {
+    if (typeof i1 === typeof i2 &&  typeof i1 === 'string') {
+        return i1 + i2;
+    } else  {
+        return i1.toString() + i2.toString();
+    }
+
+}
