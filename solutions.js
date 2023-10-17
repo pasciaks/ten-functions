@@ -34,58 +34,64 @@ function isFalse(value) {
 }
 
 function not(value) {
+    console.log(`not(${value}) = ${!value}`);
     return !value;
 }
 
 function addOne(num) {
-    if (isNaN(num)) {
-        return num;
-    } else {
-        return Number(num) + 1;
+    let result;
+    if ( num === true || num === false) {
+        return NaN;
     }
+    if (isNaN(num)) {
+        result = Number(num);
+    } else {
+        result = Number(num) + 1;
+    }
+    console.log(`addOne(${num}) = ${result}`);
+    return result;
 }
 
 function isEven(num) {
-    console.log("==========");
-    console.log(num);
-    console.log(typeof num);
-    console.log("==========")
-
-    if (num === false) { return false;}
-
+    if (num === false) { return false;} // booleans can't be odd or even
     if (num === true) { return false;}
 
-    if (num == 0) {
+    if (num == 0) { // 0 is regarded as even
         return true;
     }
 
-    return ((Number(num) % 2) == 0);
-
+    return ((Number(num) % 2) == 0); // even if can divide by 2 evenly
 }
 
 function isIdentical(i1, i2) {
+    console.log("isIdentical", i1,i2,(i1===i2));
     return i1 === i2;
 }
 
 function isEqual(i1, i2) {
+    console.log("isEqual", i1,i2,((i1 == i2) && (i1 !== i2)));
     return ((i1 == i2) && (i1 !== i2));
 }
 
 function or(i1, i2) {
+    console.log("or", i1,i2,(i1 || i2));
     return (i1 || i2);
 }
 
 function and(i1, i2) {
+    console.log("and", i1,i2,(i1 && i2));
     return (i1 && i2);
 }
 
 function concat(i1, i2) {
+    let result;
     if (typeof i1 === typeof i2 && typeof i1 === 'string') {
-        return i1 + i2;
+        result = i1 + i2;
     } else {
-        return i1.toString() + i2.toString();
+        result =  i1.toString() + i2.toString();
     }
-
+    console.log("concat(i1, i2):",i1,i2,result);
+    return result;
 }
 
 isTrue(true)             // true
