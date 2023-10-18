@@ -22,25 +22,20 @@
  */
 
 function isTrue(value) {
-    let result = (value === true)
-    console.log(`isTrue on (${value}) is ${result}`);
-    return result;
+    return (value === true)
 }
 
 function isFalse(value) {
-    let result = value === false;
-    console.log(`isFalse on (${value}) is ${result}`);
-    return result;
+    return value === false;
 }
 
 function not(value) {
-    console.log(`not(${value}) = ${!value}`);
     return !value;
 }
 
 function addOne(num) {
     let result;
-    if ( num === true || num === false) {
+    if (num === true || num === false) {
         return NaN;
     }
     if (isNaN(num)) {
@@ -48,38 +43,36 @@ function addOne(num) {
     } else {
         result = Number(num) + 1;
     }
-    console.log(`addOne(${num}) = ${result}`);
     return result;
 }
 
 function isEven(num) {
-    if (num === false) { return false;} // booleans can't be odd or even
-    if (num === true) { return false;}
-
+    if (num === false) { return false; } // booleans can't be odd or even
+    if (num === true) { return false; }
     if (num == 0) { // 0 is regarded as even
         return true;
     }
-
     return ((Number(num) % 2) == 0); // even if can divide by 2 evenly
 }
 
 function isIdentical(i1, i2) {
-    console.log("isIdentical", i1,i2,(i1===i2));
     return i1 === i2;
 }
 
 function isEqual(i1, i2) {
-    console.log("isEqual", i1,i2,((i1 == i2) && (i1 !== i2)));
+    if (typeof i1 == typeof i2) {
+        if (i1.toString() == i2.toString()) {
+            return true;
+        }
+    }
     return ((i1 == i2) && (i1 !== i2));
 }
 
 function or(i1, i2) {
-    console.log("or", i1,i2,(i1 || i2));
     return (i1 || i2);
 }
 
 function and(i1, i2) {
-    console.log("and", i1,i2,(i1 && i2));
     return (i1 && i2);
 }
 
@@ -88,89 +81,106 @@ function concat(i1, i2) {
     if (typeof i1 === typeof i2 && typeof i1 === 'string') {
         result = i1 + i2;
     } else {
-        result =  i1.toString() + i2.toString();
+        result = i1.toString() + i2.toString();
     }
-    console.log("concat(i1, i2):",i1,i2,result);
     return result;
 }
 
-isTrue(true)             // true
-isTrue(false)            // false
-isTrue(0)                // false
-isTrue(null)             // false
-isTrue("true")           // false
-isTrue("Banana")         // false
-isTrue([1, 2])           // false
+console.log(isTrue(true));          // true
+console.log(isTrue(false));         // false
+console.log(isTrue(0));          // false
+console.log(isTrue(null));          // false
+console.log(isTrue("true"));         // false
+console.log(isTrue("Banana"));       // false
+console.log(isTrue([1, 2]));        // false
 
-isFalse(false)             // true
-isFalse(true)              // false
-isFalse(0)                 // false
-isFalse(null)              // false
-isFalse("")                // false
-isFalse("Banana")          // false
-isFalse([1, 2])            // false
+console.log('');
 
-not(false)                  // true
-not(0)                      // true
-not("")                     // true
-not(null)                   // true
-not(NaN)                    // true
-not(undefined)              // true
-not(true)                   // false
-not("something")            // false
-not(Infinity)               // false
-not(123)                    // false
+console.log(isFalse(false));             // true
+console.log(isFalse(true));              // false
+console.log(isFalse(0));                 // false
+console.log(isFalse(null));             // false
+console.log(isFalse(""));               // false
+console.log(isFalse("Banana"));        // false
+console.log(isFalse([1, 2]));          // false
 
-addOne(0)                    // 1
-addOne(2)                    // 3
-addOne(-5)                   // -4
-addOne(5.789)                // 6.789
-addOne(Infinity)             // Infinity
-addOne("2")                  // 3
-addOne("0")                  // 1
-addOne("banana")             // NaN
-addOne(true)                 // NaN
-addOne(NaN)                  // NaN
+console.log('');
 
-isEven(2)                   // true
-isEven(-8)                  // true
-isEven(0)                   // true
-isEven("42")                // true
-isEven(1)                   // false
-isEven("-3")                // false
-isEven(false)               // false
-isEven("banana")            // false
+console.log(not(false));               // true
+console.log(not(0));                 // true
+console.log(not(""));                  // true
+console.log(not(null));                 // true
+console.log(not(NaN));                 // true
+console.log(not(undefined));            // true
+console.log(not(true));                // false
+console.log(not("something"));         // false
+console.log(not(Infinity));            // false
+console.log(not(123));               // false
 
-isIdentical(3, 3)                     // true
-isIdentical(false, false)             // true
-isIdentical("hello", "hello")         // true
-isIdentical(3, 3.0)                   // true
-isIdentical(undefined, undefined)     // true
-isIdentical(2, "2")                   // false
-isIdentical("javascript", "java")     // false
+console.log('');
 
-isEqual(3, "3")                       // true
-isEqual("abc123", "abc123")           // true
-isEqual(true, 1)                      // true
-isEqual(0, false)                     // true
-isEqual(4, -5)                        // false
-isEqual("java", "javascript")         // false
+console.log(addOne(0));                 // 1
+console.log(addOne(2));        // 3
+console.log(addOne(-5));      // -4
+console.log(addOne(5.789));      // 6.789
+console.log(addOne(Infinity));      // Infinity
+console.log(addOne("2"));      // 3
+console.log(addOne("0"));      // 1
+console.log(addOne("banana"));      // NaN
+console.log(addOne(true));      // NaN
+console.log(addOne(NaN));      // NaN
 
-or(true, true)                    // true
-or(true, false)                   // true
-or(false, true)                   // true
-or(false, false)                  // false
-or("hello", "world")              // "hello" (this behavior is non-obvious, research more!)
+console.log('');
 
-and(true, true)                    // true
-and(true, false)                   // false
-and(false, true)                   // false
-and(false, false)                  // false
-and("hello", "world")              // "world" (this behavior is non-obvious, research more)
+console.log(isEven(2));     // true
+console.log(isEven(-8));     // true
+console.log(isEven(0));     // true
+console.log(isEven("42"));     // true
+console.log(isEven(1));     // false
+console.log(isEven("-3"));     // false
+console.log(isEven(false));     // false
+console.log(isEven("banana"));     // false
 
-concat("code", "up")                // "codeup"
-concat("connect", 4)                // "connect4"
-concat("hello", "world")            // "helloworld"
-concat(4, 2)                        // "42"
-concat(true, true)                  // "truetrue"
+console.log('');
+
+console.log(isIdentical(3, 3));                // true
+console.log(isIdentical(false, false));       // true
+console.log(isIdentical("hello", "hello"));     // true
+console.log(isIdentical(3, 3.0));             // true
+console.log(isIdentical(undefined, undefined));    // true
+console.log(isIdentical(2, "2"));            // false
+console.log(isIdentical("javascript", "java"));  // false
+
+console.log('');
+
+console.log(isEqual(3, "3"));                    // true
+console.log(isEqual("abc123", "abc123"));      // true
+console.log(isEqual(true, 1));      // true
+console.log(isEqual(0, false));      // true
+console.log(isEqual(4, -5));      // false
+console.log(isEqual("java", "javascript"));      // false
+
+console.log('');
+
+console.log(or(true, true));  // true
+console.log(or(true, false));  // true
+console.log(or(false, true));  // true
+console.log(or(false, false));  // false
+console.log(or("hello", "world"));  // "hello" (this behavior is non-obvious, research more!)
+
+console.log('');
+
+console.log(and(true, true));   // true
+console.log(and(true, false));   // false
+console.log(and(false, true));   // false
+console.log(and(false, false));   // false
+console.log(and("hello", "world"));   // "world" (this behavior is non-obvious, research more)
+
+console.log('');
+
+console.log(concat("code", "up"));    // "codeup"
+console.log(concat("connect", 4));    // "connect4"
+console.log(concat("hello", "world"));    // "helloworld"
+console.log(concat(4, 2));    // "42"
+console.log(concat(true, true));    // "truetrue"
 
