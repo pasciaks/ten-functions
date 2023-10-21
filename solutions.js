@@ -21,69 +21,110 @@
  * concat
  */
 
-function isTrue(value) {
-    return (value === true)
+// function isTrue(value) {
+//     return (value === true)
+// }
+
+// function isFalse(value) {
+//     return value === false;
+// }
+
+// function not(value) {
+//     return !value;
+// }
+
+// function addOne(num) {
+//     let result;
+//     if (num === true || num === false) {
+//         return NaN;
+//     }
+//     if (isNaN(num)) {
+//         result = Number(num);
+//     } else {
+//         result = Number(num) + 1;
+//     }
+//     return result;
+// }
+
+// function isEven(num) {
+//     if (num === false) { return false; } // booleans can't be odd or even
+//     if (num === true) { return false; }
+//     if (num == 0) { // 0 is regarded as even
+//         return true;
+//     }
+//     return ((Number(num) % 2) == 0); // even if can divide by 2 evenly
+// }
+
+// function isIdentical(i1, i2) {
+//     return i1 === i2;
+// }
+
+// function isEqual(i1, i2) {
+//     if (typeof i1 == typeof i2) {
+//         if (i1.toString() == i2.toString()) {
+//             return true;
+//         }
+//     }
+//     return ((i1 == i2) && (i1 !== i2));
+// }
+
+// function or(i1, i2) {
+//     return (i1 || i2);
+// }
+
+// function and(i1, i2) {
+//     return (i1 && i2);
+// }
+
+// function concat(i1, i2) {
+//     let result;
+//     if (typeof i1 === typeof i2 && typeof i1 === 'string') {
+//         result = i1 + i2;
+//     } else {
+//         result = i1.toString() + i2.toString();
+//     }
+//     return result;
+// }
+
+function isTrue(num) {
+    return num === true;
 }
 
-function isFalse(value) {
-    return value === false;
+function isFalse(num) {
+    return num === false;
 }
 
 function not(value) {
     return !value;
 }
 
-function addOne(num) {
-    let result;
-    if (num === true || num === false) {
-        return NaN;
-    }
-    if (isNaN(num)) {
-        result = Number(num);
-    } else {
-        result = Number(num) + 1;
-    }
-    return result;
+function addOne(value) {
+    return parseFloat(value) + 1;
 }
 
 function isEven(num) {
-    if (num === false) { return false; } // booleans can't be odd or even
-    if (num === true) { return false; }
-    if (num == 0) { // 0 is regarded as even
-        return true;
-    }
-    return ((Number(num) % 2) == 0); // even if can divide by 2 evenly
+    return parseFloat(num) % 2 === 0;
 }
 
-function isIdentical(i1, i2) {
-    return i1 === i2;
+function isIdentical(input1, input2) {
+    return input1 === input2
 }
 
-function isEqual(i1, i2) {
-    if (typeof i1 == typeof i2) {
-        if (i1.toString() == i2.toString()) {
-            return true;
-        }
-    }
-    return ((i1 == i2) && (i1 !== i2));
+
+function isEqual(val1, val2) {
+    return val1 == val2;
 }
 
-function or(i1, i2) {
-    return (i1 || i2);
+function or(val1, val2) {
+    return val1 || val2;
 }
 
-function and(i1, i2) {
-    return (i1 && i2);
+function and(val1, val2) {
+    return val1 && val2;
 }
 
-function concat(i1, i2) {
-    let result;
-    if (typeof i1 === typeof i2 && typeof i1 === 'string') {
-        result = i1 + i2;
-    } else {
-        result = i1.toString() + i2.toString();
-    }
-    return result;
+function concat(val1, val2) {
+    return "" + val1 + val2; // coerce to string
 }
 
 console.log(isTrue(true));          // true
